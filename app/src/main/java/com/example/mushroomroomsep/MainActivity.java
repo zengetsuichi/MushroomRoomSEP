@@ -25,10 +25,10 @@ public class MainActivity extends AppCompatActivity {
         Button buttonFragmentOne = findViewById(R.id.button_fragment_one);
         NavController navController = Navigation.findNavController(this, R.id.fragmentContainerView);
 
-
-
         buttonFragmentOne.setOnClickListener(v-> navController.navigate(R.id.measurementFragment));
     }
+
+
 }
 
 

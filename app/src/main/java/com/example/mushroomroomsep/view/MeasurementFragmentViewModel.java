@@ -12,14 +12,18 @@ public class MeasurementFragmentViewModel extends ViewModel {
 
     private static final String TAG = "MeasurementFragmentViewModel";
 
-    private MeasurementRepository measurementRepository = MeasurementRepository.getInstance();
-    private LiveData<List<Measurement>> measurementsLiveData;
+    private final MeasurementRepository measurementRepository = MeasurementRepository.getInstance();
+    private final LiveData<List<Measurement>> measurementsLiveData;
 
     public MeasurementFragmentViewModel(){
-        measurementsLiveData = measurementRepository.getMeasurements();
+        measurementsLiveData = updateUsersList();
 
     }
 
+    public LiveData<List<Measurement>> updateUsersList(){
+        System.out.println("List updated");
+        return measurementRepository.getMeasurements();
+    }
 
 
     public LiveData<List<Measurement>> getAllMeasurements(){
