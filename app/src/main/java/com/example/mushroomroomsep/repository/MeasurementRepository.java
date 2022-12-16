@@ -156,14 +156,14 @@ public class MeasurementRepository {
             public void onResponse(@NonNull Call<List<Measurement>> call, @NonNull Response<List<Measurement>> response) {
                 if (response.code() == 200) {
                     measurementHistoryList.postValue(response.body());
-                    System.out.println("TemperatureThreshold obtained succesfully");
+                    System.out.println("MeasurementHistory obtained succesfully");
                 }
 
             }
 
             @Override
             public void onFailure(@NonNull Call<List<Measurement>> call, Throwable t) {
-                Log.i(TAG, "onFailure: failed to fetch TemperatureThreshold list from server");
+                Log.i(TAG, "onFailure: failed to fetch MeasurementHistory list from server");
                 System.out.println(t.getMessage());
             }
         });

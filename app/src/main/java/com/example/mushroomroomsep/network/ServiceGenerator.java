@@ -6,7 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class ServiceGenerator {
     private static MeasurementAPI measurementAPI;
 
-  private static String BASE_URL = "https://localhost:5001/";
+  private static String BASE_URL = "http://192.168.87.102:8081/api/v1/";
 
 
     public static MeasurementAPI getMeasurementAPI(){
