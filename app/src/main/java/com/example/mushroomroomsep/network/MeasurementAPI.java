@@ -28,7 +28,7 @@ public interface MeasurementAPI {
     @GET("TemperatureThreshold")
     Call<TemperatureThreshold> getTemperatureThreshold();
 
-    @GET("Measurement/history")
+    @GET("measurement/Measurement/history")
     Call<List<Measurement>> getMeasurementHistory();
 
 
