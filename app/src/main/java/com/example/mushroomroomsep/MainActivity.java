@@ -22,9 +22,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Button buttonFragmentOne = findViewById(R.id.button_fragment_one);
+        Button buttonFragmentTwo = findViewById(R.id.button_fragment_two);
         NavController navController = Navigation.findNavController(this, R.id.fragmentContainerView);
 
+
+
         buttonFragmentOne.setOnClickListener(v-> navController.navigate(R.id.measurementFragment));
+        buttonFragmentTwo.setOnClickListener(v-> navController.navigate(R.id.fragmentInfoView));
+
     }
 }
 

@@ -30,6 +30,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView_mushroomParadise" />
 
+    <Button
+        android:id="@+id/button_fragment_two"
+        android:backgroundTint="#8BC34A"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Info"
+        app:layout_constraintBottom_toTopOf="@+id/guideline2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_creator="@+id/button_fragment_one"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/button_fragment_one"
+        app:layout_constraintTop_toBottomOf="@+id/textView_mushroomParadise" />
+
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"

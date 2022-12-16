@@ -69,52 +69,31 @@ public class MeasurementFragment extends Fragment {
             measurements = measurementFragmentViewModel.getMeasurementHistoryListLiveData().getValue();
 
 
-//            id = (TextView) view.findViewById(R.id.measureId);
-//            co2 = (TextView) view.findViewById(R.id.co2);
-//            humidity = (TextView) view.findViewById(R.id.humidity);
-//            lightLevel = (TextView) view.findViewById(R.id.lightLevel);
-//            temperature = (TextView) view.findViewById(R.id.temperature);
-//            timestamp = (TextView) view.findViewById(R.id.timestamp);
-//
-//
-//
-//                id.setText(String.valueOf(measurements.get(0).getId()));
-//                co2.setText(String.valueOf(measurements.get(0).getCo2()));
-//                humidity.setText(String.valueOf(measurements.get(0).getHumidity()));
-//                lightLevel.setText(String.valueOf(measurements.get(0).getLightLevel()));
-//                temperature.setText(String.valueOf(measurements.get(0).getTemperature()));
-//                timestamp.setText(String.valueOf(measurements.get(0).getTimeStamp()));
 
 
             try {
-                Thread.sleep(2000);
+                Thread.sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
             lst = (ListView) view.findViewById(R.id.listView);
             ArrayList<String> listItems = new ArrayList<String>();
 
-            for(int i = 0; i<measurements.size(); i++) {
-                listItems.add(String.valueOf(measurements.get(i).getId()));
-                listItems.add(String.valueOf(measurements.get(i).getCo2()));
-                listItems.add(String.valueOf(measurements.get(i).getHumidity()));
-                listItems.add(String.valueOf(measurements.get(i).getLightLevel()));
-                listItems.add(String.valueOf(measurements.get(i).getTemperature()));
-                listItems.add(String.valueOf(measurements.get(i).getTimeStamp()));
 
-            }
+                listItems.add(String.valueOf(measurements.get(0).getId()));
+                listItems.add(String.valueOf(measurements.get(0).getCo2()));
+                listItems.add(String.valueOf(measurements.get(0).getHumidity()));
+                listItems.add(String.valueOf(measurements.get(0).getLightLevel()));
+                listItems.add(String.valueOf(measurements.get(0).getTemperature()));
+                listItems.add(String.valueOf(measurements.get(0).getTimeStamp()));
+
+
 
 
             ArrayAdapter ad = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, listItems);
 
             lst.setAdapter(ad);
 
-
-
-
-
-
-            getFragmentManager().beginTransaction().detach(this).attach(this).commit();
 
 
         });

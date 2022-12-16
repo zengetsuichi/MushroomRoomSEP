@@ -11,5 +11,11 @@
         android:label="fragment_one"
         tools:layout="@layout/measurement_fragment" />
 
+    <fragment
+        android:id="@+id/fragmentInfoView"
+        android:name="com.example.mushroomroomsep.InfoFragment"
+        android:label="fragment_two"
+        tools:layout="@layout/measurement_fragment" />
+
 
 </navigation>
