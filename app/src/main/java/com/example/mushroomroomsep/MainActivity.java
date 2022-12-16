@@ -16,7 +16,6 @@ import androidx.navigation.Navigation;
 public class MainActivity extends AppCompatActivity {
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,8 +26,6 @@ public class MainActivity extends AppCompatActivity {
 
         buttonFragmentOne.setOnClickListener(v-> navController.navigate(R.id.measurementFragment));
     }
-
-
 }
 
 

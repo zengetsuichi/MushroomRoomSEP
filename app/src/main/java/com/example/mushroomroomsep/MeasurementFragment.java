@@ -1,5 +1,6 @@
 package com.example.mushroomroomsep;
 
+
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,27 +8,20 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
 
-import com.example.mushroomroomsep.model.Measurement;
+import androidx.lifecycle.ViewModelProvider;
 import com.example.mushroomroomsep.view.MeasurementFragmentViewModel;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 
 public class MeasurementFragment extends Fragment {
 
     private TextView textView;
-    private TextView textView1;
     private TextView textView2;
     private TextView textView3;
     private TextView textView4;
     private TextView textView5;
     private TextView textView6;
-    private List<Measurement> measurementArrayList = new ArrayList<>();
 
 
     MeasurementFragmentViewModel measurementFragmentViewModel = new MeasurementFragmentViewModel();
@@ -47,30 +41,22 @@ public class MeasurementFragment extends Fragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
 
-        measurementFragmentViewModel.getAllMeasurements().observe(getViewLifecycleOwner(), new Observer<List<Measurement>>() {
-            @Override
-            public void onChanged(List<Measurement> measurements) {
+        measurementFragmentViewModel.getMeasurementsLiveData().observe(getViewLifecycleOwner(), measurement -> {
 
-                measurementArrayList = Collections.synchronizedList(measurements);
+            textView = (TextView) view.findViewById(R.id.measureId);
+            textView2 = (TextView) view.findViewById(R.id.co2);
+            textView3 = (TextView) view.findViewById(R.id.humidity);
+            textView4 = (TextView) view.findViewById(R.id.temperature);
+            textView5 = (TextView) view.findViewById(R.id.lightLevel);
+            textView6 = (TextView) view.findViewById(R.id.timestamp);
 
+            textView.setText(String.valueOf(measurement.getId()));
+            textView2.setText(String.valueOf(measurement.getCo2()));
+            textView3.setText(String.valueOf(measurement.getHumidity()));
+            textView4.setText(String.valueOf(measurement.getTemperature()));
+            textView5.setText(String.valueOf(measurement.getLightLevel()));
+            textView6.setText(String.valueOf(measurement.getTimeStamp()));
 
-
-                textView = (TextView) view.findViewById(R.id.measureId);
-                textView2 = (TextView) view.findViewById(R.id.timestamp);
-                textView3 = (TextView) view.findViewById(R.id.lightLevel);
-                textView4 = (TextView) view.findViewById(R.id.humidity);
-                textView5 = (TextView) view.findViewById(R.id.co2);
-                textView6 = (TextView) view.findViewById(R.id.temperature);
-
-                System.out.println("Im in MeasurementFragment");
-                textView.setText(measurements.get(0).getId());
-                textView2.setText("chuj");
-                textView3.setText("chuj");
-                textView4.setText("chuj");
-                textView5.setText("chuj");
-                textView6.setText("chuj");
-
-            }
         });
 
     }
